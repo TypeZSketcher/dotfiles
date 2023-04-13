@@ -56,6 +56,7 @@ bindsym $mod+Shift+q kill
 
 # start dmenu (a program launcher)
 #bindsym $mod+d exec --no-startup-id dmenu
+#migrating to rofi :3
 bindsym $mod+d exec --no-startup-id rofi -show drun -run-shell-command '{terminal} -e bash -ic "{cmd} && read"'
 # A more modern dmenu replacement is rofi:
 # bindcode $mod+40 exec "rofi -modi drun,run -show drun"
@@ -184,16 +185,9 @@ mode "resize" {
 
 bindsym $mod+r mode "resize"
 
-# Start i3bar to display a workspace bar (plus the system information i3status
-# finds out, if available)
-#bar {
-#        status_command polybar atas
-#}
-#bar {
-#	status_command polybar bawah
-#}
-exec wal -i ".local/share/wallpaper/Miku.jpeg"
-exec_always --no-startup-id /home/linchan/.config/polybar/scripts/launch.sh
+#add your own wallpaper manually
+#exec wal -i " .jpeg"
+exec_always --no-startup-id $HOME$/.config/polybar/scripts/launch.sh
 
 #exec --no-startup-id polybar --disable-wm-check
 exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
@@ -201,20 +195,7 @@ exec --no-startup-id autotiling
 exec --no-startup-id picom -b
 
 bindsym Print exec scrot
-
 default_border pixel 2
-
-#gaps outer 0 
-#gaps inner 0
-
-# 5 +
 gaps inner 5px
-
-# 5
-# samadengan 10 kan :v
 gaps outer 5px
-  
-#workspace 3 gaps inner 0
-#workspace 3 gaps outer 0
-
 smart_gaps inverse_outer
